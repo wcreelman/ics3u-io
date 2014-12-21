@@ -24,7 +24,7 @@ int main() {
         lastName[pComma-line] = '\0';
         strcpy(firstName, pComma+2);
         
-        // calculate and print the average
+        // print in first name first order
         printf("Hello %s %s\n", firstName, lastName);
     }
         
