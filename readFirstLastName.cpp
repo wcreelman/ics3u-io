@@ -7,8 +7,6 @@
 #include <iostream>
 #include <string.h>
 
-using namespace std;
-
 int main() {
     char line[52], firstName[25], lastName[25];
     char *pComma;
