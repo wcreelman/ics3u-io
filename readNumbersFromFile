@@ -1,0 +1,46 @@
+/***************************************************************************
+ * W. Creelman  December 2014                                              * 
+ * Find the minimum number of a list of numbers from a file.               *
+ * Create a list of integers using notepad. Name the file "numbers.txt"    * 
+  *************************************************************************/
+#include <iostream>
+
+#define FILENAME "numbers.txt"
+
+int main() {
+    FILE *fptr;
+    int minimum;
+    int num;
+    
+    // open the file for reading
+    fptr = fopen(FILENAME, "r");
+    if (fptr == NULL) {
+        printf("Unable to open %s\n", FILENAME);
+        system("pause");
+        return 1;
+    }
+    
+    // read the first number as the starting minimum
+    if (fscanf(fptr, "%d", &minimum) != 1) {
+        printf("Can't read first number\n");
+        system("pause");
+        return 1;  
+    }
+    
+    // read and print out the rest of the list, 
+    // keeping track of the smallest so far
+    printf("Your list\n");
+    printf("%d\n", minimum);
+    while (fscanf(fptr, "%d", &num) == 1) {
+        printf("%d\n", num);
+        if (num < minimum) {
+            minimum = num;    
+        }
+    }
+    
+    // print the minimum
+    printf("\nThe minimum is %d\n" ,minimum);
+    
+    system("pause");
+    return 0;
+}
